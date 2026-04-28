@@ -147,5 +147,10 @@ The system supports multiple clients simultaneously:
 
 - Data is stored in memory  
 - No database is used  
-- The system is designed for simplicity and low latency  
+- The system is designed for simplicity and low latency
+
+## Links for report and DemoVideo
+
+- [Demo Video]([https://your-video-link-here](https://drive.google.com/file/d/18A1RCoJKrTeRxt4M2OfhAQoAVd_brl28/view?usp=sharing))
+- [Report (PDF)]([https://your-pdf-link-here](https://drive.google.com/file/d/1XHWzoVZ5qA6jWIxL2CYz6ni4r3faAs8c/view?usp=sharing))
 
