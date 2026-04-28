@@ -151,6 +151,6 @@ The system supports multiple clients simultaneously:
 
 ## Links for report and DemoVideo
 
-- [Demo Video](https://your-video-link-here](https://drive.google.com/file/d/18A1RCoJKrTeRxt4M2OfhAQoAVd_brl28/view?usp=sharing)
-- [Report (PDF)](https://your-pdf-link-here](https://drive.google.com/file/d/1XHWzoVZ5qA6jWIxL2CYz6ni4r3faAs8c/view?usp=sharing)
+- [Demo Video](https://drive.google.com/file/d/18A1RCoJkrTeRxt4M20fhAQoAVd_brI28/view?usp=sharing)
+- [Report (PDF)](https://drive.google.com/file/d/1XHWzoVZ5qA6jWIxL2CYz6ni4r3faAs8c/view?usp=sharing)
 
