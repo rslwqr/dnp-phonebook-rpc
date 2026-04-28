@@ -115,6 +115,7 @@ Enter name: Alice
 Enter phone: 12345
 
 Contact 'Alice' added
+```
 
 ---
 
