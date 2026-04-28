@@ -42,17 +42,20 @@ The system follows a client-server architecture:
 ```bash
 git clone https://github.com/rslwqr/dnp-phonebook-rpc.git
 cd dnp-phonebook-rpc
+```
 
 ### 2. Create virtual environment
 
 ```bash
 python3 -m venv venv
 source venv/bin/activate
+```
 
 ### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
+```
 
 ### 4. Generate gRPC code (if needed)
 
@@ -62,6 +65,7 @@ python -m grpc_tools.protoc \
     --python_out=./generated \
     --grpc_python_out=./generated \
     ./proto/phonebook.proto
+```
 
 ---
 
@@ -71,11 +75,13 @@ python -m grpc_tools.protoc \
 
 ```bash
 python server.py
+```
 
 Expected output
 
 ```bash
 Server started on port 50051
+```
 
 Then use the menu to interact with the system.
 
@@ -86,11 +92,13 @@ Then use the menu to interact with the system.
 
 ```bash
 pytest
+```
 
 ### Expected result:
 
 ```bash
 19 passed
+```
 
 
 ## Concurrency
