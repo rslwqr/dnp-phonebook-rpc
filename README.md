@@ -85,6 +85,38 @@ Server started on port 50051
 
 Then use the menu to interact with the system.
 
+---
+
+## Usage
+
+After starting the server and client, the user can interact with the system through a simple command-line menu.
+
+Available actions:
+
+1. Add contact — enter name and phone number  
+2. Lookup contact — find a contact by name  
+3. Update contact — change phone number  
+4. Delete contact — remove a contact  
+5. List contacts — display all stored contacts  
+6. Exit — close the client  
+
+### Example
+
+```text
+1. Add contact
+2. Lookup contact
+3. Update contact
+4. Delete contact
+5. List contacts
+6. Exit
+
+Choose an option: 1
+Enter name: Alice
+Enter phone: 12345
+
+Contact 'Alice' added
+
+---
 
 ## Testing
 
