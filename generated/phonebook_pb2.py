@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0fphonebook.proto\x12\tphonebook\"\x07\n\x05\x45mpty\"&\n\x07\x43ontact\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05phone\x18\x02 \x01(\t\"0\n\x11\x41\x64\x64\x43ontactRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05phone\x18\x02 \x01(\t\"$\n\x14LookupContactRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"7\n\x14UpdateContactRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tnew_phone\x18\x02 \x01(\t\"$\n\x14\x44\x65leteContactRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"3\n\x0fOperationStatus\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0f\n\x07message\x18\x02 \x01(\t\"^\n\x15LookupContactResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0f\n\x07message\x18\x02 \x01(\t\x12#\n\x07\x63ontact\x18\x03 \x01(\x0b\x32\x12.phonebook.Contact\"<\n\x14ListContactsResponse\x12$\n\x08\x63ontacts\x18\x01 \x03(\x0b\x32\x12.phonebook.Contact2\x8d\x03\n\x10PhonebookService\x12\x46\n\nAddContact\x12\x1c.phonebook.AddContactRequest\x1a\x1a.phonebook.OperationStatus\x12R\n\rLookupContact\x12\x1f.phonebook.LookupContactRequest\x1a .phonebook.LookupContactResponse\x12L\n\rUpdateContact\x12\x1f.phonebook.UpdateContactRequest\x1a\x1a.phonebook.OperationStatus\x12L\n\rDeleteContact\x12\x1f.phonebook.DeleteContactRequest\x1a\x1a.phonebook.OperationStatus\x12\x41\n\x0cListContacts\x12\x10.phonebook.Empty\x1a\x1f.phonebook.ListContactsResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0fphonebook.proto\x12\tphonebook\"\x07\n\x05\x45mpty\"&\n\x07\x43ontact\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05phone\x18\x02 \x01(\t\"0\n\x11\x41\x64\x64\x43ontactRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05phone\x18\x02 \x01(\t\"$\n\x14LookupContactRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"3\n\x0fOperationStatus\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0f\n\x07message\x18\x02 \x01(\t\"q\n\x15LookupContactResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0f\n\x07message\x18\x02 \x01(\t\x12#\n\x07\x63ontact\x18\x03 \x01(\x0b\x32\x12.phonebook.Contact\x12\x11\n\tsignature\x18\x04 \x01(\t\"O\n\x14ListContactsResponse\x12$\n\x08\x63ontacts\x18\x01 \x03(\x0b\x32\x12.phonebook.Contact\x12\x11\n\tsignature\x18\x02 \x01(\t2\xf1\x01\n\x10PhonebookService\x12\x46\n\nAddContact\x12\x1c.phonebook.AddContactRequest\x1a\x1a.phonebook.OperationStatus\x12R\n\rLookupContact\x12\x1f.phonebook.LookupContactRequest\x1a .phonebook.LookupContactResponse\x12\x41\n\x0cListContacts\x12\x10.phonebook.Empty\x1a\x1f.phonebook.ListContactsResponseb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -39,16 +39,12 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_ADDCONTACTREQUEST']._serialized_end=127
   _globals['_LOOKUPCONTACTREQUEST']._serialized_start=129
   _globals['_LOOKUPCONTACTREQUEST']._serialized_end=165
-  _globals['_UPDATECONTACTREQUEST']._serialized_start=167
-  _globals['_UPDATECONTACTREQUEST']._serialized_end=222
-  _globals['_DELETECONTACTREQUEST']._serialized_start=224
-  _globals['_DELETECONTACTREQUEST']._serialized_end=260
-  _globals['_OPERATIONSTATUS']._serialized_start=262
-  _globals['_OPERATIONSTATUS']._serialized_end=313
-  _globals['_LOOKUPCONTACTRESPONSE']._serialized_start=315
-  _globals['_LOOKUPCONTACTRESPONSE']._serialized_end=409
-  _globals['_LISTCONTACTSRESPONSE']._serialized_start=411
-  _globals['_LISTCONTACTSRESPONSE']._serialized_end=471
-  _globals['_PHONEBOOKSERVICE']._serialized_start=474
-  _globals['_PHONEBOOKSERVICE']._serialized_end=871
+  _globals['_OPERATIONSTATUS']._serialized_start=167
+  _globals['_OPERATIONSTATUS']._serialized_end=218
+  _globals['_LOOKUPCONTACTRESPONSE']._serialized_start=220
+  _globals['_LOOKUPCONTACTRESPONSE']._serialized_end=333
+  _globals['_LISTCONTACTSRESPONSE']._serialized_start=335
+  _globals['_LISTCONTACTSRESPONSE']._serialized_end=414
+  _globals['_PHONEBOOKSERVICE']._serialized_start=417
+  _globals['_PHONEBOOKSERVICE']._serialized_end=658
 # @@protoc_insertion_point(module_scope)

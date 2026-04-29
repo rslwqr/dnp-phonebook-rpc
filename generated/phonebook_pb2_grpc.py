@@ -44,16 +44,6 @@ class PhonebookServiceStub(object):
                 request_serializer=phonebook__pb2.LookupContactRequest.SerializeToString,
                 response_deserializer=phonebook__pb2.LookupContactResponse.FromString,
                 _registered_method=True)
-        self.UpdateContact = channel.unary_unary(
-                '/phonebook.PhonebookService/UpdateContact',
-                request_serializer=phonebook__pb2.UpdateContactRequest.SerializeToString,
-                response_deserializer=phonebook__pb2.OperationStatus.FromString,
-                _registered_method=True)
-        self.DeleteContact = channel.unary_unary(
-                '/phonebook.PhonebookService/DeleteContact',
-                request_serializer=phonebook__pb2.DeleteContactRequest.SerializeToString,
-                response_deserializer=phonebook__pb2.OperationStatus.FromString,
-                _registered_method=True)
         self.ListContacts = channel.unary_unary(
                 '/phonebook.PhonebookService/ListContacts',
                 request_serializer=phonebook__pb2.Empty.SerializeToString,
@@ -71,18 +61,6 @@ class PhonebookServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def LookupContact(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UpdateContact(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def DeleteContact(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -106,16 +84,6 @@ def add_PhonebookServiceServicer_to_server(servicer, server):
                     servicer.LookupContact,
                     request_deserializer=phonebook__pb2.LookupContactRequest.FromString,
                     response_serializer=phonebook__pb2.LookupContactResponse.SerializeToString,
-            ),
-            'UpdateContact': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateContact,
-                    request_deserializer=phonebook__pb2.UpdateContactRequest.FromString,
-                    response_serializer=phonebook__pb2.OperationStatus.SerializeToString,
-            ),
-            'DeleteContact': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteContact,
-                    request_deserializer=phonebook__pb2.DeleteContactRequest.FromString,
-                    response_serializer=phonebook__pb2.OperationStatus.SerializeToString,
             ),
             'ListContacts': grpc.unary_unary_rpc_method_handler(
                     servicer.ListContacts,
@@ -177,60 +145,6 @@ class PhonebookService(object):
             '/phonebook.PhonebookService/LookupContact',
             phonebook__pb2.LookupContactRequest.SerializeToString,
             phonebook__pb2.LookupContactResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def UpdateContact(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/phonebook.PhonebookService/UpdateContact',
-            phonebook__pb2.UpdateContactRequest.SerializeToString,
-            phonebook__pb2.OperationStatus.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def DeleteContact(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/phonebook.PhonebookService/DeleteContact',
-            phonebook__pb2.DeleteContactRequest.SerializeToString,
-            phonebook__pb2.OperationStatus.FromString,
             options,
             channel_credentials,
             insecure,

@@ -5,8 +5,6 @@ package phonebook;
 service PhonebookService {
   rpc AddContact(AddContactRequest) returns (OperationStatus);
   rpc LookupContact(LookupContactRequest) returns (LookupContactResponse);
-  rpc UpdateContact(UpdateContactRequest) returns (OperationStatus);
-  rpc DeleteContact(DeleteContactRequest) returns (OperationStatus);
   rpc ListContacts(Empty) returns (ListContactsResponse);
 }
 
@@ -26,15 +24,6 @@ message LookupContactRequest {
   string name = 1;
 }
 
-message UpdateContactRequest {
-  string name = 1;
-  string new_phone = 2;
-}
-
-message DeleteContactRequest {
-  string name = 1;
-}
-
 message OperationStatus {
   bool success = 1;
   string message = 2;
@@ -44,8 +33,10 @@ message LookupContactResponse {
   bool success = 1;
   string message = 2;
   Contact contact = 3;
+  string signature = 4;
 }
 
 message ListContactsResponse {
   repeated Contact contacts = 1;
+  string signature = 2;
 }

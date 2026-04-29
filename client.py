@@ -2,6 +2,7 @@ import grpc
 
 from generated import phonebook_pb2
 from generated import phonebook_pb2_grpc
+from phonebook.signing import canonical_contact, canonical_contacts, verify_signature
 
 
 HOST = "localhost"
@@ -9,13 +10,11 @@ PORT = 50051
 
 
 def print_menu():
-    print("\nPhonebook Client Menu:")
+    print("\nWrite-once Phonebook Client Menu:")
     print("1. Add contact")
     print("2. Lookup contact")
-    print("3. Update contact")
-    print("4. Delete contact")
-    print("5. List contacts")
-    print("6. Exit")
+    print("3. List contacts")
+    print("4. Exit")
 
 
 def add_contact(stub):
@@ -36,43 +35,44 @@ def lookup_contact(stub):
         phonebook_pb2.LookupContactRequest(name=name)
     )
 
-    if response.success:
-        print(f"Name: {response.contact.name}, Phone: {response.contact.phone}")
-    else:
+    if not response.success:
         print(response.message)
+        return
 
+    payload = canonical_contact(response.contact.name, response.contact.phone)
+    is_valid = verify_signature(payload, response.signature)
 
-def update_contact(stub):
-    name = input("Enter name to update: ").strip()
-    new_phone = input("Enter new phone: ").strip()
-
-    response = stub.UpdateContact(
-        phonebook_pb2.UpdateContactRequest(name=name, new_phone=new_phone)
-    )
-
-    print(response.message)
-
-
-def delete_contact(stub):
-    name = input("Enter name to delete: ").strip()
-
-    response = stub.DeleteContact(
-        phonebook_pb2.DeleteContactRequest(name=name)
-    )
-
-    print(response.message)
+    print(f"Name: {response.contact.name}, Phone: {response.contact.phone}")
+    print(f"Signature: {response.signature}")
+    print(f"Signature valid: {is_valid}")
 
 
 def list_contacts(stub):
     response = stub.ListContacts(phonebook_pb2.Empty())
 
     if not response.contacts:
+        payload = canonical_contacts({})
+        is_valid = verify_signature(payload, response.signature)
+
         print("Phonebook is empty")
+        print(f"Signature: {response.signature}")
+        print(f"Signature valid: {is_valid}")
         return
+
+    contacts = {
+        contact.name: contact.phone
+        for contact in response.contacts
+    }
+
+    payload = canonical_contacts(contacts)
+    is_valid = verify_signature(payload, response.signature)
 
     print("\nContacts:")
     for contact in response.contacts:
         print(f"- {contact.name}: {contact.phone}")
+
+    print(f"Signature: {response.signature}")
+    print(f"Signature valid: {is_valid}")
 
 
 def run_client():
@@ -88,12 +88,8 @@ def run_client():
             elif choice == "2":
                 lookup_contact(stub)
             elif choice == "3":
-                update_contact(stub)
-            elif choice == "4":
-                delete_contact(stub)
-            elif choice == "5":
                 list_contacts(stub)
-            elif choice == "6":
+            elif choice == "4":
                 print("Exiting client")
                 break
             else:
